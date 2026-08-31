@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Variabler i JavaScript</h1>
+    <p>Hei, <span id="name"></span>!(<span id="age">?</span> år)</p>
 
     <script>
         //DEKLARERE VARIABLER
@@ -14,8 +15,17 @@
         * CONST: deklarerer en konstant verdi som ikke skal endres
         * LET: deklarerer en verdi som kan endres
         */
-       const firstname = "Benjamin"
-       console.log(firstname)
+       const firstName = "Benjamin"
+       console.log(firstName)
+       const lastName = "Bjørnstad"
+       //skriv ut firstName-verdi til  HTML-element med id name
+       //Vi bruker ? slår altså sammen variabler og tekst for å skrive ut fornavn + etternavn
+       document.getElementById("name").innerHTML = firstName + " " + lastName
+
+       //DEKLARERER EN VARIABEL FOR ALDER
+       const birthYear = 2005
+       let age = 2026 - birthYear
+       document.getElementById("age").innerHTML = age
     </script>
 </body>
 </html>
