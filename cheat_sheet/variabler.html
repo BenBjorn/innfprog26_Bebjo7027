@@ -3,29 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheat sheet variabler</title>
+    <title>Cheat sheet Variabler</title>
 </head>
 <body>
     <h1>Variabler i JavaScript</h1>
-    <p>Hei, <span id="name"></span>!(<span id="age">?</span> år)</p>
+    <p>Hei, <span id="name"></span> (<span id="age">?</span> år)</p>
 
+    <h2>Handlekurv</h2>
+    <ul>
+        <li>Antall produkter: <span id="quantitySpan">0</span></li>
+        <li>Pris: <span id="priceSpan">0</span>kroner</li>
+        <li>SUM: <span id="totalSpan">0</span>kroner</li>
+    </ul>
+    
     <script>
         //DEKLARERE VARIABLER
-        /*
-        * CONST: deklarerer en konstant verdi som ikke skal endres
-        * LET: deklarerer en verdi som kan endres
-        */
-       const firstName = "Benjamin"
-       console.log(firstName)
-       const lastName = "Bjørnstad"
-       //skriv ut firstName-verdi til  HTML-element med id name
-       //Vi bruker ? slår altså sammen variabler og tekst for å skrive ut fornavn + etternavn
-       document.getElementById("name").innerHTML = firstName + " " + lastName
+        /* 
+         * const: deklarere en konstant verdi som ikke skal endres
+         * let: deklarere en verdi som kan endres
+         */
+        const firstname = "Tore Marius"
+        console.log(firstname)
+        const lastname = "Akerbæk"
+        //Skriv ut firstname-verdi til HTML-element med id name:
+        //Vi bruker konkatinering, altså slår sammen variabler og tekst, for å skrive ut fornavn + etternavn:
+        document.getElementById("name").innerHTML = firstname + " " + lastname
 
-       //DEKLARERER EN VARIABEL FOR ALDER
-       const birthYear = 2005
-       let age = 2026 - birthYear
-       document.getElementById("age").innerHTML = age
+        //DEKLARERE EN VARIABEL FOR ALDER
+        const birthYear = 1983
+        let age = 2026 - birthYear
+        document.getElementById("age").innerHTML = age
+
+        //FORBEREDER HANDLEKURV
+        let quantity = 3
+        const price = 1000
+        let total = quantity * price
+
+        document.getElementById("quantitySpan").innerHTML = quantity
+        document.getElementById("priceSpan").innerHTML = price
+        document.getElementById("totalSpan").innerHTML = total
     </script>
 </body>
 </html>
