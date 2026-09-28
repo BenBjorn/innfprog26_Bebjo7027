@@ -8,13 +8,14 @@
     <style>
         #books {
             display: flex;
-            gap: 5rem;
+            gap: .5rem;
         }
-        article{
-            border: 1px solid gray;
-            background: white;
-            
-
+        article {
+            border: 1px solid #ccc;
+            background: #f3f3f3;
+            padding: .5rem;
+            box-sizing: border-box;
+            width: 33%;
         }
     </style>
 </head>
@@ -61,8 +62,8 @@
         bokregister.map(b => { booksHTML += 
             `<article>
                 <h3>${b.title}</h3>
-                <p class="isbnNumber">${b.isbn}</p>
-                <p>${b.author.length === 1 ? "forfatter"} ${b.author.join{", "}}</p>
+                <p class="isbnnumber">${b.isbn}</p>
+                <p>${b.author.length === 1 ? "Forfatter" : "Forfattere"}: ${b.author.join(", ")}</p>
                 <p>Sidetall: ${b.pagecount}</p>
             </article>`
         })
