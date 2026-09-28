@@ -30,4 +30,7 @@ const grades = [
     { letter: "F", score: 1}
 ]
 
+//Antall studenter
 document.getElementById("studentCount").innerHTML = students.length
+
+//Gjennomsnittskarakter
