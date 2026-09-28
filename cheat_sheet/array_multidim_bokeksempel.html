@@ -6,7 +6,7 @@
     <title>Array Cheat Sheet: Multidimensjonal array</title>
 
     <style>
-        #books {
+        #books, #longreads {
             display: flex;
             gap: .5rem;
         }
@@ -29,13 +29,18 @@
         <p>Laster inn bøker...</p>
     </section>
 
+    <h2>Langlesning</h2>
+    <section id="longreads">
+        <p>Laster inn bøker...</p>
+    </section>
+
     <script>
         const bokregister = [
             {
                 title: "Fourth Wing",
                 author: ["Rebecca Yarros"],
                 pagecount: 512,
-                isbn: 9783423220996
+                isbn: 9780349437019
             },
             {
                 title: "Silver Eyes",
@@ -61,6 +66,7 @@
         let booksHTML = ""
         bokregister.map(b => { booksHTML += 
             `<article>
+                <img src="https://covers.openlibrary.org/b/isbn/${b.isbn}-M.jpg" />
                 <h3>${b.title}</h3>
                 <p class="isbnnumber">${b.isbn}</p>
                 <p>${b.author.length === 1 ? "Forfatter" : "Forfattere"}: ${b.author.join(", ")}</p>
@@ -69,6 +75,21 @@
         })
         console.log(booksHTML)
         document.getElementById("books").innerHTML = booksHTML
+
+        //Bruker .filter for å filtrere ut bøker med mer enn 400 sider.
+        let longreadHTML = ""
+        const longReads = bokregister.filter(l => l.pagecount >= 400)
+        console.log("Longread: ", longReads)
+        longReads.map(l => {
+            longreadHTML += `<article>
+                <img src="https://covers.openlibrary.org/b/isbn/${l.isbn}-M.jpg" />
+                <h3>${l.title}</h3>
+                <p class="isbnnumber">${l.isbn}</p>
+                <p>${l.author.length === 1 ? "Forfatter" : "Forfattere"}: ${l.author.join(", ")}</p>
+                <p>Sidetall: ${l.pagecount}</p>
+            </article>`
+        })
+        document.getElementById("longreads").innerHTML = longreadHTML
     </script>
 </body>
 </html>
