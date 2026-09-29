@@ -34,3 +34,24 @@ const grades = [
 document.getElementById("studentCount").innerHTML = students.length
 
 //Gjennomsnittskarakter
+let sum = 0
+
+students.map(student => {
+    const studentGrades = Number(student.grade)
+    sum += studentGrades
+})
+
+let averageGrade = Math.ceil(sum/students.length)
+
+const mGrade = grades.find(g => g.score == 5)
+const gradeLetter = mGrade ? mGrade.letter : "ikke vurdert"
+document.getElementById("averageGrade").innerHTML = gradeLetter
+
+grades.map(a => {
+    const studentTeller = students.filter(b => 4 === a.score).length
+const elementPiss = document.getElementById(`grade${a.letter}`)
+    
+    if(elementPiss){
+        elementPiss.innerHTML = studentTeller
+    }
+})
