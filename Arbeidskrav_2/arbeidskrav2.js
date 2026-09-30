@@ -33,25 +33,52 @@ const grades = [
 //Antall studenter
 document.getElementById("studentCount").innerHTML = students.length
 
-//Gjennomsnittskarakter
-let sum = 0
+// 2. Gjennomsnittskarakter (som bokstavkarakter, rundet opp)
+// Konverterer streng-karakter ("6") til tall-score (6) ved å slå opp i grades-arrayen med .filter
+const gradeScores = students.map(s => grades.filter(g => g.score == s.grade)[0].score)
 
-students.map(student => {
-    const studentGrades = Number(student.grade)
-    sum += studentGrades
-})
+// Regner ut summen ved hjelp av .map
+let sumGrades = 0
+gradeScores.map(score => sumGrades += score)
 
-let averageGrade = Math.ceil(sum/students.length)
+const exactAvgGrade = sumGrades / students.length
 
-const mGrade = grades.find(g => g.score == 5)
-const gradeLetter = mGrade ? mGrade.letter : "ikke vurdert"
-document.getElementById("averageGrade").innerHTML = gradeLetter
+// Betinget logikk for å runde OPP til nærmeste heltall (A=6, B=5, C=4, D=3, E=2, F=1)
+let avgGradeNumber = 1
+if (exactAvgGrade > 5) {
+avgGradeNumber = 6
+} else if (exactAvgGrade > 4) {
+avgGradeNumber = 5
+} else if (exactAvgGrade > 3) {
+avgGradeNumber = 4
+} else if (exactAvgGrade > 2) {
+avgGradeNumber = 3
+} else if (exactAvgGrade > 1) {
+avgGradeNumber = 2
+}
 
-grades.map(a => {
-    const studentTeller = students.filter(b => 4 === a.score).length
-const elementPiss = document.getElementById(`grade${a.letter}`)
-    
-    if(elementPiss){
-        elementPiss.innerHTML = studentTeller
-    }
-})
+// Finner bokstavkarakter ved hjelp av .filter
+const averageGradeLetter = grades.filter(g => g.score === avgGradeNumber)[0].letter
+
+document.getElementById('averageGrade').textContent = averageGradeLetter
+
+// 3. Tell og skriv ut antall av hver karakter (A til F) med .filter()
+document.getElementById('gradeA').textContent = students.filter(s => s.grade === "6").length
+document.getElementById('gradeB').textContent = students.filter(s => s.grade === "5").length
+document.getElementById('gradeC').textContent = students.filter(s => s.grade === "4").length
+document.getElementById('gradeD').textContent = students.filter(s => s.grade === "3").length
+document.getElementById('gradeE').textContent = students.filter(s => s.grade === "2").length
+document.getElementById('gradeF').textContent = students.filter(s => s.grade === "1").length
+
+// 4. Gjennomsnittsalder (rundet til to desimaler)
+let sumAge = 0;
+students.map(s => sumAge += s.age)
+
+const averageAge = (sumAge / students.length).toFixed(2)
+document.getElementById('averageAge').textContent = averageAge
+
+// 5. Antall rett fra videregående (19 år) med .filter()
+document.getElementById('highSchool').textContent = students.filter(s => s.age === 19).length
+
+// 6. Antall med yrkeserfaring (workexperience >= 1) med .filter()
+document.getElementById('workExperience').textContent = students.filter(s => s.workexperience >= 1).length
