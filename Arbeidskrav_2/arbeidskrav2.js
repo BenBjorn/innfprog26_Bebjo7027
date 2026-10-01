@@ -57,6 +57,7 @@ avgGradeNumber = 3
 avgGradeNumber = 2
 }
 
+<<<<<<< Updated upstream
 // Finner bokstavkarakter ved hjelp av .filter
 const averageGradeLetter = grades.filter(g => g.score === avgGradeNumber)[0].letter
 
@@ -82,3 +83,14 @@ document.getElementById('highSchool').textContent = students.filter(s => s.age =
 
 // 6. Antall med yrkeserfaring (workexperience >= 1) med .filter()
 document.getElementById('workExperience').textContent = students.filter(s => s.workexperience >= 1).length
+=======
+//Antall karakterer
+grades.map(a => {
+    const studentTeller = students.filter(b => 4 === a.score).length
+const elementPiss = document.getElementById(`grade${a.letter}`)
+    
+    if(elementPiss){
+        elementPiss.innerHTML = studentTeller
+    }
+})
+>>>>>>> Stashed changes
