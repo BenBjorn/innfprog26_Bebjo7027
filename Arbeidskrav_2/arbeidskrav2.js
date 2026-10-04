@@ -60,25 +60,25 @@ avgGradeNumber = 2
 // Finner bokstavkarakter ved hjelp av .filter
 const averageGradeLetter = grades.filter(g => g.score === avgGradeNumber)[0].letter
 
-document.getElementById('averageGrade').textContent = averageGradeLetter
+document.getElementById("averageGrade").textContent = averageGradeLetter
 
 // 3. Tell og skriv ut antall av hver karakter (A til F) med .filter()
-document.getElementById('gradeA').textContent = students.filter(s => s.grade === "6").length
-document.getElementById('gradeB').textContent = students.filter(s => s.grade === "5").length
-document.getElementById('gradeC').textContent = students.filter(s => s.grade === "4").length
-document.getElementById('gradeD').textContent = students.filter(s => s.grade === "3").length
-document.getElementById('gradeE').textContent = students.filter(s => s.grade === "2").length
-document.getElementById('gradeF').textContent = students.filter(s => s.grade === "1").length
+document.getElementById("gradeA").textContent = students.filter(s => s.grade === "6").length
+document.getElementById("gradeB").textContent = students.filter(s => s.grade === "5").length
+document.getElementById("gradeC").textContent = students.filter(s => s.grade === "4").length
+document.getElementById("gradeD").textContent = students.filter(s => s.grade === "3").length
+document.getElementById("gradeE").textContent = students.filter(s => s.grade === "2").length
+document.getElementById("gradeF").textContent = students.filter(s => s.grade === "1").length
 
 // 4. Gjennomsnittsalder (rundet til to desimaler)
 let sumAge = 0;
 students.map(s => sumAge += s.age)
 
 const averageAge = (sumAge / students.length).toFixed(2)
-document.getElementById('averageAge').textContent = averageAge
+document.getElementById("averageAge").textContent = averageAge
 
 // 5. Antall rett fra videregående (19 år) med .filter()
-document.getElementById('highSchool').textContent = students.filter(s => s.age === 19).length
+document.getElementById("highSchool").textContent = students.filter(s => s.age === 19).length
 
 // 6. Antall med yrkeserfaring (workexperience >= 1) med .filter()
-document.getElementById('workExperience').textContent = students.filter(s => s.workexperience >= 1).length
+document.getElementById("workExperience").textContent = students.filter(s => s.workexperience >= 1).length
